@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meri Pehli Website</title>
+
+  <style>
+    /* ====== Base Styles (CSS) ====== */
+    :root{
+      --primary:#0a3d91;   /* dark blue */
+      --primary-hover:#0d6b3c; /* green on hover */
+      --text:#333;
+      --bg:#f0f0f0;
+      --card:#ffffff;
+      --shadow:0 8px 20px rgba(0,0,0,.08);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      scroll-behavior:smooth;
+    }
+
+    /* ====== Navbar ====== */
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:var(--primary);
+      box-shadow:var(--shadow);
+    }
+    .nav-container{
+      max-width:1040px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:10px 16px;
+      gap:8px;
+    }
+    .brand{
+      color:#fff;
+      font-weight:700;
+      letter-spacing:.5px;
+    }
+    .menu{
+      display:flex;
+      gap:4px;
+      align-items:center;
+    }
+    .menu a{
+      color:#fff;
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:12px;
+      display:block;
+    }
+    .menu a:hover,
+    .menu a.active{
+      background:var(--primary-hover);
+    }
+    /* Mobile menu button */
+    .burger{
+      display:none;
+      background:transparent;
+      border:0;
+      font-size:24px;
+      color:#fff;
+      cursor:pointer;
+    }
+
+    /* ====== Layout ====== */
+    .container{
+      max-width:1040px;
+      margin:0 auto;
+      padding:24px 16px 60px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+      margin:20px 0;
+    }
+    h1,h2{
+      margin:8px 0 14px;
+      color:var(--primary);
+      text-align:center;
+    }
+    p{font-size:18px;line-height:1.6}
+
+    /* Image */
+    .center-img{
+      display:block;
+      margin:14px auto;
+      width:200px;
+      height:auto;
+    }
+
+    /* Lists */
+    ul,ol{padding-left:22px}
+
+    /* Table */
+    table{
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:12px;
+      background:#fff;
+    }
+    th,td{
+      border:1px solid #ccc;
+      padding:10px 14px;
+      text-align:left;
+    }
+    th{background:#f7f7f7}
+
+    /* Buttons */
+    .btn{
+      background:var(--primary);
+      color:#fff;
+      border:0;
+      padding:10px 16px;
+      border-radius:12px;
+      cursor:pointer;
+      display:inline-block;
+    }
+    .btn:hover{background:var(--primary-hover)}
+    .actions{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    /* Footer */
+    footer{
+      text-align:center;
+      padding:24px 12px 40px;
+      color:#666;
+    }
+
+    /* ====== Responsive ====== */
+    @media (max-width:768px){
+      .burger{display:block}
+      .menu{
+        display:none;              /* hidden by default on mobile */
+        flex-direction:column;
+        padding:8px;
+      }
+      .menu.open{display:flex}     /* show when toggled */
+      .menu a{width:100%}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVBAR (Menu Bar) ====== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="brand">Meri Website</div>
+
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu">☰</button>
+
+      <div class="menu" id="menuLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#lists">Lists</a>
+        <a href="#routine">Routine</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.google.com" target="_blank" rel="noopener">Google</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== CONTENT ====== -->
+  <main class="container">
+
+    <!-- Home / Hero -->
+    <section id="home" class="card">
+      <h1>Assalam o Alaikum 👋</h1>
+      <p>Ye meri pehli website hai jo maine <b>mobile par</b> banayi hai! Neeche image, lists, table, aur buttons bhi hain.</p>
+
+      <img
+        class="center-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6a/HTML5_logo_and_wordmark.svg"
+        alt="HTML Logo" />
+
+      <div class="actions">
+        <button class="btn" id="sayHelloBtn">Click Me</button>
+        <button class="btn" id="toggleThemeBtn">Dark / Light</button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="card">
+      <h2>About</h2>
+      <p>Main coding seekh raha hoon aur ye meri pehli website hai. Is page me HTML (structure), CSS (design) aur JavaScript (interaction) teenon use kiye gaye hain.</p>
+      <p>Meri favourite site: <a href="https://www.google.com" target="_blank" rel="noopener">Google</a></p>
+    </section>
+
+    <!-- Lists -->
+    <section id="lists" class="card">
+      <h2>Meri Lists</h2>
+
+      <h3>Shopping List</h3>
+      <ul>
+        <li>Milk</li>
+        <li>Bread</li>
+        <li>Eggs</li>
+      </ul>
+
+      <h3>Daily Routine</h3>
+      <ol>
+        <li>Uthna</li>
+        <li>School jana</li>
+        <li>Homework karna</li>
+      </ol>
+
+      <h3>Meri Pasand</h3>
+      <ul>
+        <li>Cricket</li>
+        <li>Programming</li>
+        <li>Music</li>
+      </ul>
+    </section>
+
+    <!-- Table -->
+    <section id="routine" class="card">
+      <h2>Time Table</h2>
+      <table>
+        <tr>
+          <th>Din</th>
+          <th>Kaam</th>
+        </tr>
+        <tr>
+          <td>Monday</td>
+          <td>School + Coding</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>Cricket</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Contact (demo form) -->
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Demo form (JavaScript se submit handle hoga):</p>
+      <form id="contactForm">
+        <div style="display:grid; gap:10px; max-width:520px; margin:0 auto">
+          <input required name="name" placeholder="Aap ka naam" style="padding:10px 12px; border-radius:10px; border:1px solid #ccc;">
+          <input type="email" required name="email" placeholder="Email" style="padding:10px 12px; border-radius:10px; border:1px solid #ccc;">
+          <textarea required name="message" rows="4" placeholder="Message" style="padding:10px 12px; border-radius:10px; border:1px solid #ccc;"></textarea>
+          <button class="btn" type="submit">Send</button>
+        </div>
+      </form>
+      <p id="formStatus" style="text-align:center; margin-top:10px;"></p>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> Meri Pehli Website
+  </footer>
+
+  <script>
+    // ====== JavaScript (Interactions) ======
+
+    // Mobile menu toggle
+    const burgerBtn = document.getElementById('burgerBtn');
+    const menuLinks = document.getElementById('menuLinks');
+    burgerBtn.addEventListener('click', () => {
+      menuLinks.classList.toggle('open');
+    });
+
+    // Active link highlight on scroll
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.menu a[href^="#"]');
+
+    const setActiveLink = () => {
+      let current = '';
+      sections.forEach(sec => {
+        const top = window.scrollY + 120; // offset for sticky navbar
+        if (top >= sec.offsetTop && top < sec.offsetTop + sec.offsetHeight) {
+          current = '#' + sec.id;
+        }
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === current);
+      });
+    };
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('load', setActiveLink);
+
+    // Button: say hello
+    document.getElementById('sayHelloBtn').addEventListener('click', () => {
+      alert('MashAllah! Aap ne button click kiya 🎉');
+    });
+
+    // Dark / Light theme toggle
+    const toggleBtn = document.getElementById('toggleThemeBtn');
+    let dark = false;
+    toggleBtn.addEventListener('click', () => {
+      dark = !dark;
+      if(dark){
+        document.documentElement.style.setProperty('--bg', '#0f172a');
+        document.documentElement.style.setProperty('--card', '#111827');
+        document.documentElement.style.setProperty('--text', '#e5e7eb');
+        document.documentElement.style.setProperty('--primary', '#2563eb');
+        document.documentElement.style.setProperty('--primary-hover', '#16a34a');
+      } else {
+        document.documentElement.style.setProperty('--bg', '#f0f0f0');
+        document.documentElement.style.setProperty('--card', '#ffffff');
+        document.documentElement.style.setProperty('--text', '#333333');
+        document.documentElement.style.setProperty('--primary', '#0a3d91');
+        document.documentElement.style.setProperty('--primary-hover', '#0d6b3c');
+      }
+    });
+
+    // Demo contact form (no backend) – prevent real submit
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('formStatus');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      statusEl.textContent = `Shukriya, ${data.name}! Aap ka message receive ho gaya (demo).`;
+      form.reset();
+    });
+
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
